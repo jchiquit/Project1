@@ -36,7 +36,13 @@ def mySort(data,col):
 # Sort based on key/column
 #Input: list of dictionaries and col (key) to sort on
 #Output: Return the first item in the sorted list as a string of just: firstName lastName
-	pass
+	sort_dict=sorted(data, key=lambda val: val[col])
+
+	y = sort_dict[0]
+	s_first = y['First']
+	s_last = y['Last']
+
+	return s_first + " " + s_last
 
 def classSizes(data):
 # Create a histogram
