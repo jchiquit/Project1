@@ -50,7 +50,27 @@ def classSizes(data):
 # Output: Return a list of tuples sorted by the number of students in that class in
 # descending order
 # [('Senior', 26), ('Junior', 25), ('Freshman', 21), ('Sophomore', 18)]
-	pass
+	lst_tuples = []
+	freshman = 0
+	sophomore = 0
+	junior = 0
+	senior = 0
+	for x in data:
+		if x['Class'] == 'Freshman':
+			freshman+=1
+		elif x['Class'] == 'Sophomore':
+			sophomore+=1
+		elif x['Class'] == 'Junior':
+			junior+=1
+		elif x['Class'] == 'Senior':
+			senior+=1
+	lst_tuples.append(('Freshman', freshman))
+	lst_tuples.append(('Sophomore', sophomore))
+	lst_tuples.append(('Junior', junior))
+	lst_tuples.append(('Senior', senior))
+
+	sort_tuple=sorted(lst_tuples, key=lambda val: val[1], reverse = True)
+	return sort_tuple
 
 def findMonth(a):
 # Find the most common birth month form this data
