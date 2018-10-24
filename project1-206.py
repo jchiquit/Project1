@@ -98,7 +98,16 @@ def mySortPrint(a,col,fileName):
 # as fist,last,email
 # Input: list of dictionaries, col (key) to sort by and output file name
 # Output: No return value, but the file is written
-	pass
+	s_csv = open(fileName, 'a')
+
+	sort_dict = sorted(a, key=lambda val: val[col])
+
+	for s in sort_dict:
+		s_first = s['First']
+		s_last = s['Last']
+		s_email = s['Email']
+		string = s_first + "," + s_last + "," + s_email + "\n"
+		s_csv.write(string)
 
 def findAge(a):
 # def findAge(a):
@@ -106,7 +115,14 @@ def findAge(a):
 # Output: Return the average age of the students and round that age to the nearest
 # integer.  You will need to work with the DOB and the current date to find the current
 # age in years.
-	pass
+	c_ages=[]
+	for s_info in a:
+		birthday = s_info['DOB']. split('/')
+		year = birthday[2]
+		age = 2018 - int(year)
+		c_ages.append(age)
+	avg_age = sum(c_ages) / len(c_ages)
+	return round(avg_age)
 
 
 ################################################################
